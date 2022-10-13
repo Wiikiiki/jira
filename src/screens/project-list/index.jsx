@@ -23,13 +23,13 @@ export const ProjectListScreen = () => {
     );
   }, [param]);
 
-  useEffect(() => {
+  useMount(() => {
     fetch(`${apiUrl}/users`).then(async (response) => {
       if (response.ok) {
         setUsers(await response.json());
       }
     });
-  }, []);
+  });
 
   return (
     <div>
@@ -37,4 +37,10 @@ export const ProjectListScreen = () => {
       <List users={users} list={list} />
     </div>
   );
+};
+
+export const useMount = (callback) => {
+  useEffect(() => {
+    callback();
+  }, []);
 };
