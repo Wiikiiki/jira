@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 // eslint-disable-next-line @typescript-eslint/explicit-function-return-type, @typescript-eslint/strict-boolean-expressions
-export const isFalsy = (value: any) => (value === 0 ? false : !value);
+export const isFalsy = (value: unknown) => (value === 0 ? false : !value);
 
 // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
 export const cleanObject = (object: object) => {
@@ -27,7 +27,7 @@ export const useMount = (callback: () => void) => {
 };
 
 // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
-export const useDebounce = (value: any, delay?: number) => {
+export const useDebounce = (value: unknown, delay?: number): any => {
   const [debouncedValue, setDebouncedVlue] = useState(value);
 
   useEffect(() => {
