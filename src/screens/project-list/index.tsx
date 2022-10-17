@@ -1,21 +1,23 @@
-import { useEffect, useState } from "react";
+import { ReactElement, useEffect, useState } from "react";
 import { List } from "./list";
 import { SearchPanel } from "./search-panel";
 import { cleanObject, useMount, useDebounce } from "utils";
 import * as qs from "qs";
 
 const apiUrl = process.env.REACT_APP_API_URL;
-export const ProjectListScreen = () => {
+export const ProjectListScreen = (): ReactElement => {
   const [param, setParam] = useState({
     name: "",
     personId: "",
   });
-  const debouncedParam = useDebounce(param, 2000);
+  const debouncedParam = useDebounce(param, 200);
   const [users, setUsers] = useState([]);
   const [list, setList] = useState([]);
 
   useEffect(() => {
+    // eslint-disable-next-line @typescript-eslint/no-floating-promises
     fetch(
+      // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
       `${apiUrl}/projects?${qs.stringify(cleanObject(debouncedParam))}`
     ).then(async (response) => {
       if (response.ok) {
@@ -25,6 +27,7 @@ export const ProjectListScreen = () => {
   }, [debouncedParam]);
 
   useMount(() => {
+    // eslint-disable-next-line @typescript-eslint/no-floating-promises, @typescript-eslint/restrict-template-expressions
     fetch(`${apiUrl}/users`).then(async (response) => {
       if (response.ok) {
         setUsers(await response.json());
