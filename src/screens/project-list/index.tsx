@@ -4,6 +4,9 @@ import { SearchPanel } from "./search-panel";
 import { cleanObject, useMount, useDebounce } from "utils";
 import * as qs from "qs";
 
+const arr: T[] = [1, 2, "3"];
+console.log(arr);
+
 const apiUrl = process.env.REACT_APP_API_URL;
 export const ProjectListScreen = (): ReactElement => {
   const [param, setParam] = useState({
