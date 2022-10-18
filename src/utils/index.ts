@@ -27,7 +27,7 @@ export const useMount = (callback: () => void) => {
 };
 
 // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
-export const useDebounce = (value: unknown, delay?: number): any => {
+export const useDebounce = <V>(value: V, delay?: number) => {
   const [debouncedValue, setDebouncedVlue] = useState(value);
 
   useEffect(() => {
