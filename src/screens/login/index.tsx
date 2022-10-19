@@ -12,11 +12,15 @@ export const LoginScreen = (): JSX.Element => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(param),
-    }).then(async (response) => {
-      // eslint-disable-next-line no-empty
-      if (response.ok) {
-      }
-    });
+    })
+      .then(async (response: Response) => {
+        // eslint-disable-next-line no-empty
+        if (response.ok) {
+        }
+      })
+      .catch(() => {
+        console.log(123);
+      });
   };
 
   // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
