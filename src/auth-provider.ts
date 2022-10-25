@@ -31,6 +31,9 @@ export const login = (data: { username: string; password: string }) => {
     // eslint-disable-next-line no-empty
     if (response.ok) {
       return handleUserResponse(await response.json());
+    } else {
+      // eslint-disable-next-line @typescript-eslint/return-await
+      return Promise.reject(data);
     }
   });
 };
@@ -50,6 +53,9 @@ export const register = (data: { username: string; password: string }) => {
     // eslint-disable-next-line no-empty
     if (response.ok) {
       return handleUserResponse(await response.json());
+    } else {
+      // eslint-disable-next-line @typescript-eslint/return-await
+      return Promise.reject(data);
     }
   });
 };
@@ -57,4 +63,5 @@ export const register = (data: { username: string; password: string }) => {
 // 登出
 
 // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
-export const logout = () => window.localStorage.removeItem(localStorageKey);
+export const logout = async () =>
+  window.localStorage.removeItem(localStorageKey);
