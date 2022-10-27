@@ -1,9 +1,7 @@
 import { useEffect, useState } from "react";
 
-// eslint-disable-next-line @typescript-eslint/explicit-function-return-type, @typescript-eslint/strict-boolean-expressions
 export const isFalsy = (value: unknown) => (value === 0 ? false : !value);
 
-// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
 export const cleanObject = (object: object) => {
   const result = { ...object };
   Object.keys(result).forEach((key) => {
@@ -11,22 +9,18 @@ export const cleanObject = (object: object) => {
     const value = result[key];
     if (isFalsy(value)) {
       /* @ts-expect-error */
-      // eslint-disable-next-line @typescript-eslint/no-dynamic-delete
       delete result[key];
     }
   });
   return result;
 };
 
-// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
 export const useMount = (callback: () => void) => {
   useEffect(() => {
     callback();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 };
 
-// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
 export const useDebounce = <V>(value: V, delay?: number) => {
   const [debouncedValue, setDebouncedVlue] = useState(value);
 
@@ -38,7 +32,6 @@ export const useDebounce = <V>(value: V, delay?: number) => {
   return debouncedValue;
 };
 
-// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
 export const useArray = <T>(initialArray: T[]) => {
   const [value, setValue] = useState(initialArray);
   return {

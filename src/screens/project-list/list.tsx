@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/prefer-nullish-coalescing */
-/* eslint-disable @typescript-eslint/strict-boolean-expressions */
 import { User } from "screens/project-list/search-panel";
 
 interface Project {
@@ -15,7 +13,6 @@ interface ListProps {
   users: User[];
 }
 
-// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
 export const List = ({ users, list }: ListProps) => {
   return (
     <table>

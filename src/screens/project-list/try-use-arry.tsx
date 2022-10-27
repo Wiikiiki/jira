@@ -1,6 +1,5 @@
 import { useArray, useMount } from "utils";
 
-// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
 export const TsReactTest = () => {
   const persons: Array<{ name: string; age: number }> = [
     { name: "jack", age: 25 },

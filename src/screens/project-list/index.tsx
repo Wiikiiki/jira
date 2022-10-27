@@ -16,9 +16,7 @@ export const ProjectListScreen = (): ReactElement => {
   const [list, setList] = useState([]);
 
   useEffect(() => {
-    // eslint-disable-next-line @typescript-eslint/no-floating-promises
     fetch(
-      // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
       `${apiUrl}/projects?${qs.stringify(cleanObject(debouncedParam))}`
     ).then(async (response) => {
       if (response.ok) {
@@ -28,7 +26,6 @@ export const ProjectListScreen = (): ReactElement => {
   }, [debouncedParam]);
 
   useMount(() => {
-    // eslint-disable-next-line @typescript-eslint/no-floating-promises, @typescript-eslint/restrict-template-expressions
     fetch(`${apiUrl}/users`).then(async (response) => {
       if (response.ok) {
         setUsers(await response.json());

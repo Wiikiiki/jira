@@ -2,7 +2,6 @@ import { useState } from "react";
 import { LoginScreen } from "./login";
 import { RegisterScreen } from "./register";
 
-// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
 export const UnauthenticatedApp = () => {
   const [isRegister, setIsRegister] = useState(false);
   return (

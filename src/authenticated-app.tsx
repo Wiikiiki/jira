@@ -1,7 +1,6 @@
-// import { useAuth } from "context/auth-context";
+import { useAuth } from "context/auth-context";
 import { ProjectListScreen } from "screens/project-list";
 
-// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
 export const AuthenticatedApp = () => {
   // const { logout } = useAuth;
   return (
